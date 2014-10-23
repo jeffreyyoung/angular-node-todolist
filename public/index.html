@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+<title>Hello World, AngularJS - ViralPatel.net</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script type="text/javascript" src="/js/core.js"></script>
+<script type="text/javascript" src="/js/controllers/main.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <section class="container">
+    <div class="row" ng-controller="TodoController">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+        <form class="input-group" ng-submit="add()">
+          <input type="text" class="form-control" ng-model="newTodo">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Add</button>
+          </span>
+        </form>
+      </div><!-- /.col-lg-6 -->
+      <ul class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 list-unstyled">
+        <li ng-repeat="todo in todos">
+          <button type="button" class="btn btn-danger btn-sm" ng-click="delete($index, todo.id)">
+            <span class="glyphicon glyphicon-ok"></span> Done
+          </button>
+          <span class="h5">{{todo.text}}</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>
